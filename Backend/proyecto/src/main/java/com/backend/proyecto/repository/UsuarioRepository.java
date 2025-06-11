@@ -8,6 +8,6 @@ import com.backend.proyecto.entity.Usuario;
 @Repository("usuarioRepository")
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    List<Usuario> findByCorreoUsuarioAndPasswordUsuario(String correoUsuario, String contrasenaUsuario);
+    List<Usuario> findByCorreoUsuarioAndContrasenaUsuario(String correoUsuario, String contrasenaUsuario);
 
 }

@@ -40,9 +40,10 @@ public class AdministradorServicio {
     @PostMapping(path = "/login")
     public Administrador login(@RequestBody Administrador administrador) {
 
-        List<Administrador> administradors = administradorRepository.findByCorreoUsuarioAndPasswordAdministradors(
-                administrador.getCorreoAdministrador(),
-                administrador.getContrasenaAdministrador());
+        List<Administrador> administradors = administradorRepository
+                .findByCorreoAdministradorAndContrasenaAdministrador(
+                        administrador.getCorreoAdministrador(),
+                        administrador.getContrasenaAdministrador());
 
         Administrador administradorRetorno = null;
         if (!administradors.isEmpty()) {

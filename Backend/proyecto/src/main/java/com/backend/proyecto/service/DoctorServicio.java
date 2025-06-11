@@ -39,7 +39,7 @@ public class DoctorServicio {
     @PostMapping(path = "/login")
     public Doctor login(@RequestBody Doctor doctor) {
 
-        List<Doctor> doctors = doctorRepository.findByCorreoUsuarioAndPasswordDoctor(
+        List<Doctor> doctors = doctorRepository.findByCorreoDoctorAndContrasenaDoctor(
                 doctor.getCorreoDoctor(),
                 doctor.getContrasenaDoctor());
 

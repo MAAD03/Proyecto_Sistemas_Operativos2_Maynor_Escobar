@@ -9,7 +9,7 @@ import com.backend.proyecto.entity.Administrador;
 @Repository("administradorRepository")
 public interface AdministradorRepository extends JpaRepository<Administrador, Long> {
 
-    List<Administrador> findByCorreoUsuarioAndPasswordAdministradors(String correoAdministrador,
+    List<Administrador> findByCorreoAdministradorAndContrasenaAdministrador(String correoAdministrador,
             String contrasenaAdministrador);
 
 }

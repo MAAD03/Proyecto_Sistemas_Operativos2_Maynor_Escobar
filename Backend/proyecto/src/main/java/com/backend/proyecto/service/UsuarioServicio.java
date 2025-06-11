@@ -40,7 +40,7 @@ public class UsuarioServicio {
     @PostMapping(path = "/login")
     public Usuario login(@RequestBody Usuario usuario) {
 
-        List<Usuario> usuarios = usuarioRepository.findByCorreoUsuarioAndPasswordUsuario(
+        List<Usuario> usuarios = usuarioRepository.findByCorreoUsuarioAndContrasenaUsuario(
                 usuario.getCorreoUsuario(),
                 usuario.getContrasenaUsuario());
 

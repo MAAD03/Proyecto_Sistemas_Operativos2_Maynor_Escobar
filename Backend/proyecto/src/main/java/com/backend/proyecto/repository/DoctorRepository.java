@@ -8,6 +8,6 @@ import com.backend.proyecto.entity.Doctor;
 @Repository("doctorRepository")
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
-    List<Doctor> findByCorreoUsuarioAndPasswordDoctor(String correoDoctor, String contrasenaDoctor);
+    List<Doctor> findByCorreoDoctorAndContrasenaDoctor(String correoDoctor, String contrasenaDoctor);
 
 }
