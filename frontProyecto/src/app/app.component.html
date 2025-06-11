@@ -1,0 +1,26 @@
+<nav *ngIf="isLoggedIn" class="navbar navbar-expand-lg bg-body-tertiary background fs-4" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Moto Express</span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li  *ngFor="let menuPorRol of menuPorRolList" class="nav-item">
+          <a class="nav-link" href="{{menuPorRol.ruta}}">{{menuPorRol.nombreMenu}}</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
