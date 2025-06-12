@@ -1,0 +1,81 @@
+<div class="container p-5 fondo">
+    <div>
+        <h1>Citas</h1>
+        <hr>
+        <form (ngSubmit)="crear()" class=" " style=" width: 800px;" id="formularioCrear">
+            <h2>Crear Citas</h2>
+            <div class="mb-3">
+                <label class="form-label">Fecha:</label>
+                <input class="form-control" type="date" [(ngModel)]="cita.fechaCitas"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Hora:</label>
+                <input class="form-control" type="time" [(ngModel)]="cita.horaCitas"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Descripcion:</label>
+                <input class="form-control" type="text" [(ngModel)]="cita.descripcionCitas"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Paciente:</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="cita.idUsuario" [ngModelOptions]="{standalone:true}" placeholder="" required>
+                    <option selected></option>
+                    <option *ngFor="let user of usuarioList" value="{{user.idUsuario}}">{{user.correoUsuario}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Doctor:</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="cita.idDoctor" [ngModelOptions]="{standalone:true}" placeholder="" required>
+                    <option selected></option>
+                    <option *ngFor="let doctor of doctorList" value="{{doctor.idDoctor}}">{{doctor.correoDoctor}}</option>
+                </select>
+            </div>
+            
+            
+            <div>
+                <input class="btn boton btn-lg " type="submit" value="Guardar">
+                &nbsp;
+                <button class="btn boton btn-lg" click="limpiar()">Limpiar</button>
+            </div>
+        </form>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <h2>Citas</h2>
+    <br>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Id de la Citas</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Doctor</th>
+                <th scope="col">Modificaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of citaList">
+                <th scope="row">{{cita.idCitas}}</th>
+                <td>{{cita.fechaCitas | date}}</td>
+                <td>{{cita.horaCitas}}</td>
+                <td>{{cita.descripcionCitas}}</td>
+                <td>{{cita.idUsuario  | usuario: usuarioList}}</td>
+                <td>{{cita.idDoctor | doctor: doctorList}}</td>
+                <td>
+                    <button class="btn btn-outline-primary" (click)="modificar(cita)">Modificar</button>
+                    &nbsp;
+                    <button class="btn btn-outline-danger" (click)="eliminar(cita)">Eliminar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

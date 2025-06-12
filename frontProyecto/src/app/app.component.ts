@@ -21,10 +21,28 @@ export class AppComponent {
   };
 
   constructor(private router: Router, private http: HttpClient) {
-    const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
-    const idRol = usuario.idRol;
+  
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
+  const doctor = JSON.parse(localStorage.getItem('doctor') || '{}');
+  const administrador = JSON.parse(localStorage.getItem('administrador') || '{}');
+
+  let idRol: number | null = null;
+
+  if (usuario && Object.keys(usuario).length > 0) {
+    idRol = usuario.idRol;
+  } else if (doctor && Object.keys(doctor).length > 0) {
+    idRol = doctor.idRol;
+  } else if (administrador && Object.keys(administrador).length > 0) {
+    idRol = administrador.idRol;
+  } else {
+    console.warn('Ningún usuario válido encontrado en localStorage');
+  }
+
+  if (idRol !== null) {
     this.buscarNavbar(idRol);
   }
+}
+
 
 
   buscarNavbar(idRol: number): void {
@@ -41,21 +59,28 @@ export class AppComponent {
   servicioBuscarMenuPorRol(idRol: number): Observable<any> {
     return this.http.get(`http://localhost:8080/MenusPorRol/porRol/${idRol}`, this.httpOptions);
   }
- 
+
   ngOnInit(): void {
     this.checkAuthentication();
   }
 
-  
-  checkAuthentication(): void {
-    const usuario = localStorage.getItem('usuario');
-    this.isLoggedIn = !!usuario;
-  }
 
- 
-  logout(): void {
-    localStorage.removeItem('usuario'); 
-    this.isLoggedIn = false;
-    this.router.navigate(['/login']);
+  checkAuthentication(): void {
+  const usuario = localStorage.getItem('usuario');
+  const doctor = localStorage.getItem('doctor');
+  const administrador = localStorage.getItem('administrador');
+
+  this.isLoggedIn = !!usuario || !!doctor || !!administrador;
 }
+
+
+
+  logout(): void {
+  localStorage.removeItem('usuario');
+  localStorage.removeItem('doctor');
+  localStorage.removeItem('administrador');
+  this.isLoggedIn = false;
+  this.router.navigate(['/login']);
+}
+
 }

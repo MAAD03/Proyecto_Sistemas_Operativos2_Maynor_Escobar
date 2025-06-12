@@ -12,11 +12,11 @@ import lombok.Data;
 public class VistaMenuPorRol {
 
     @Id
-    @Column(name = "id_rol")
-    private Long idRol;
-
     @Column(name = "id_menu")
     private Long idMenu;
+
+    @Column(name = "id_rol")
+    private Long idRol;
 
     @Column(name = "nombre_rol")
     private String nombreRol;

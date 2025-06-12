@@ -1,0 +1,114 @@
+<div class="container p-5 fondo">
+    <div>
+        <h1>Usuarios</h1>
+        <hr>
+        <form (ngSubmit)="crear()" class=" " style=" width: 800px;" id="formularioCrear">
+            <h2>Crear Usuario</h2>
+            
+            <div class="mb-3">
+                <label class="form-label">correo:</label>
+                <input class="form-control" type="email" [(ngModel)]="usuario.correoUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">contrasena:</label>
+                <input class="form-control" type="password" [(ngModel)]="usuario.contrasenaUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div>  
+            <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                <input class="form-control" type="text" [(ngModel)]="usuario.nombreUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div> 
+            <div class="mb-3">
+                <label class="form-label">Apellido:</label>
+                <input class="form-control" type="text" [(ngModel)]="usuario.apellidoUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div> 
+            <div class="mb-3">
+                <label class="form-label">Fecha Nacimiento:</label>
+                <input class="form-control" type="date" [(ngModel)]="usuario.fechaNacimiento"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">DPI:</label>
+                <input class="form-control" type="number" [(ngModel)]="usuario.dpiUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div> 
+             <div class="mb-3">
+                <label class="form-label">Telefono:</label>
+                <input class="form-control" type="number" [(ngModel)]="usuario.telefonoUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div> 
+            <div class="mb-3">
+                <label class="form-label">Genero:</label>
+                <input class="form-control" type="text" [(ngModel)]="usuario.generoUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div> 
+            <div class="mb-3">
+                <label class="form-label">Direccion:</label>
+                <input class="form-control" type="text" [(ngModel)]="usuario.direccionUsuario"
+                    [ngModelOptions]="{standalone:true}" placeholder="" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Rol:</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="usuario.idRol" [ngModelOptions]="{standalone:true}" placeholder="" required>
+                    <option selected></option>
+                    <option *ngFor="let rol of rolList" value="{{rol.idRol}}">{{rol.nombreRol}}</option>
+                </select>
+            </div>      
+            <div>
+                <input class="btn boton btn-lg " type="submit" value="Guardar">
+                &nbsp;
+                <button class="btn boton btn-lg" click="limpiar()">Limpiar</button>
+            </div>
+        </form>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <h2>Usuarios Activos</h2>
+    <br>
+    <table class="table table-dark table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Id del Usuario</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Contrasena</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Fecha nacimiento</th>
+                <th scope="col">DPI</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Modificaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarioList">
+                <th scope="row">{{usuario.idUsuario}}</th>
+                <td>{{usuario.correoUsuario}}</td>
+                <td>{{usuario.contrasenaUsuario}}</td>
+                <td>{{usuario.nombreUsuario}}</td>
+                <td>{{usuario.apellidoUsuario}}</td>
+                <td>{{usuario.fechaNacimiento | date}}</td>
+                <td>{{usuario.dpiUsuario}}</td>
+                <td>{{usuario.telefonoUsuario}}</td>
+                <td>{{usuario.generoUsuario}}</td>
+                <td>{{usuario.direccionUsuario}}</td>
+                <td>{{usuario.idRol  | rol: rolList}}</td>
+                <td>
+                    <button class="btn btn-outline-primary" (click)="modificar(usuario)">Modificar</button>
+                    &nbsp;
+                    <button class="btn btn-outline-danger" (click)="eliminar(usuario)">Eliminar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

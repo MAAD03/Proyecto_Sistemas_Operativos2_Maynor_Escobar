@@ -1,6 +1,6 @@
 <nav *ngIf="isLoggedIn" class="navbar navbar-expand-lg bg-body-tertiary background fs-4" data-bs-theme="dark">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Moto Express</span>
+    <span class="navbar-brand mb-0 h1">Clinica SO2</span>
     <button
       class="navbar-toggler"
       type="button"
@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li  *ngFor="let menuPorRol of menuPorRolList" class="nav-item">
-          <a class="nav-link" href="{{menuPorRol.ruta}}">{{menuPorRol.nombreMenu}}</a>
+          <a class="nav-link" href="{{menuPorRol.rutaMenu}}">{{menuPorRol.nombreMenu}}</a>
         </li>
 
       </ul>

@@ -30,7 +30,7 @@ public class Citas {
     @Column(name = "descripcion", length = 255, nullable = true)
     private String descripcionCitas;
 
-    @Column(name = "id_user", nullable = false)
+    @Column(name = "id_usuario", nullable = false)
     private Long idUsuario;
 
     @Column(name = "id_doctor", nullable = false)

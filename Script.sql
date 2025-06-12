@@ -107,6 +107,69 @@ JOIN menu_rol mr ON r.id_rol = mr.id_rol
 JOIN menu m ON mr.id_menu = m.id_menu;
 
 
+-- Vistas para Recetas
+CREATE OR REPLACE VIEW vista_recetas_por_usuario AS
+SELECT 
+    r.id_recetas,
+    r.descripcion,
+    u.id_user AS id_usuario,
+    u.nombre AS nombre_usuario,
+    u.apellido AS apellido_usuario,
+    d.id_doctor,
+    d.nombre AS nombre_doctor,
+    d.apellido AS apellido_doctor
+FROM recetas r
+JOIN usuario u ON r.id_usuario = u.id_user
+JOIN doctor d ON r.id_doctor = d.id_doctor;
+
+CREATE OR REPLACE VIEW vista_recetas_por_doctor AS
+SELECT 
+    r.id_recetas,
+    r.descripcion,
+    d.id_doctor,
+    d.nombre AS nombre_doctor,
+    d.apellido AS apellido_doctor,
+    u.id_user AS id_usuario,
+    u.nombre AS nombre_usuario,
+    u.apellido AS apellido_usuario
+FROM recetas r
+JOIN doctor d ON r.id_doctor = d.id_doctor
+JOIN usuario u ON r.id_usuario = u.id_user;
+
+CREATE OR REPLACE VIEW vista_citas_por_usuario AS
+SELECT 
+    c.id_citas,
+    c.fecha,
+    c.hora,
+    c.descripcion,
+    c.id_usuario,
+    u.nombre AS nombre_usuario,
+    u.apellido AS apellido_usuario,
+    c.id_doctor,
+    d.nombre AS nombre_doctor,
+    d.apellido AS apellido_doctor
+FROM citas c
+JOIN usuario u ON c.id_usuario = u.id_user
+JOIN doctor d ON c.id_doctor = d.id_doctor;
+
+CREATE OR REPLACE VIEW vista_citas_por_doctor AS
+SELECT 
+    c.id_citas,
+    c.fecha,
+    c.hora,
+    c.descripcion,
+    c.id_usuario,
+    u.nombre AS nombre_usuario,
+    u.apellido AS apellido_usuario,
+    c.id_doctor,
+    d.nombre AS nombre_doctor,
+    d.apellido AS apellido_doctor
+FROM citas c
+JOIN doctor d ON c.id_doctor = d.id_doctor
+JOIN usuario u ON c.id_usuario = u.id_user;
+
+
+
 -- Inserciones basicas para funcionamiento
 
 
@@ -114,6 +177,28 @@ INSERT INTO rol (nombre_rol)
 VALUES ('ADMIN');
 
 INSERT INTO administrador (correo, contrasena, id_rol)
-values ('adminSO2', 'adminSO2', 1);
+values ('adminSO2@correo.com', 'adminSO2', 1);
 
+
+INSERT INTO menu_rol (id_menu, id_rol) VALUES
+('Administrador', '/administradorA'),
+('Citas', '/citasA'),
+('Doctor', '/doctorA'),
+('Menú', '/menuA'),
+('Menú Rol', '/menurolA'),
+('Recetas', '/recetasA'),
+('Rol', '/rolA'),
+('Usuario', '/usuarioA'),
+('Inicio', '/inicio');
+
+INSERT INTO menu_rol (id_menu, id_rol) VALUES
+(1 , 1),
+(2 , 1),
+(3 , 1),
+(4 , 1),
+(5 , 1),
+(6 , 1),
+(7 , 1),
+(8 , 1),
+(9 , 1);
 
