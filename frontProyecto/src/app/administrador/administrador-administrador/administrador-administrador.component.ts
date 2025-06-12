@@ -41,7 +41,7 @@ export class AdministradorAdministradorComponent {
 
   servicioCrear(): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/administrador/guardar',
+      '/api/administrador/guardar',
       this.administrador,
       this.httpOptions
     );
@@ -60,7 +60,7 @@ export class AdministradorAdministradorComponent {
   }
 
   servicioBuscar(): Observable<any> {
-    return this.http.get('http://localhost:8080/administrador/buscar');
+    return this.http.get('/api/administrador/buscar');
   }
 
   // Modificar administrador
@@ -85,7 +85,7 @@ export class AdministradorAdministradorComponent {
 
   servicioEliminar(idAdministrador: number): Observable<any> {
     return this.http.delete(
-      `http://localhost:8080/administrador/eliminar/${idAdministrador}`
+      `/api/administrador/eliminar/${idAdministrador}`
     );
   }
   // Buscar Roles
@@ -101,7 +101,7 @@ export class AdministradorAdministradorComponent {
   }
 
   servicioBuscarRoles(): Observable<any> {
-    return this.http.get('http://localhost:8080/rol/buscar');
+    return this.http.get('/api/rol/buscar');
   }
 
 }

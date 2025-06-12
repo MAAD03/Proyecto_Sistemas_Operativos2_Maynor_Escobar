@@ -41,7 +41,7 @@ export class DoctorAdministradorComponent {
 
   servicioCrear(): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/doctor/guardar',
+      '/api/doctor/guardar',
       this.doctor,
       this.httpOptions
     );
@@ -60,7 +60,7 @@ export class DoctorAdministradorComponent {
   }
 
   servicioBuscar(): Observable<any> {
-    return this.http.get('http://localhost:8080/doctor/buscar');
+    return this.http.get('/api/doctor/buscar');
   }
 
   // Modificar doctor
@@ -85,7 +85,7 @@ export class DoctorAdministradorComponent {
 
   servicioEliminar(idDoctor: number): Observable<any> {
     return this.http.delete(
-      `http://localhost:8080/doctor/eliminar/${idDoctor}`
+      `/api/doctor/eliminar/${idDoctor}`
     );
   }
   // Buscar Roles
@@ -101,7 +101,7 @@ export class DoctorAdministradorComponent {
   }
 
   servicioBuscarRoles(): Observable<any> {
-    return this.http.get('http://localhost:8080/rol/buscar');
+    return this.http.get('/api/rol/buscar');
   }
 
 }

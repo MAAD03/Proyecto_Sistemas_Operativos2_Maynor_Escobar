@@ -39,7 +39,7 @@ export class MenuAdministradorComponent {
 
   servicioCrear(): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/menu/guardar',
+      '/api/menu/guardar',
       this.menu,
       this.httpOptions
     );
@@ -58,7 +58,7 @@ export class MenuAdministradorComponent {
   }
 
   servicioBuscarMenu(): Observable<any> {
-    return this.http.get('http://localhost:8080/menu/buscar');
+    return this.http.get('/api/menu/buscar');
   }
 
   // Modificar menú
@@ -84,7 +84,7 @@ eliminar(menu: any) {
 
 servicioEliminar(idMenu: number): Observable<any> {
   return this.http.delete(
-    `http://localhost:8080/menu/eliminar/${idMenu}`
+    `/api/menu/eliminar/${idMenu}`
   );
 }
 }

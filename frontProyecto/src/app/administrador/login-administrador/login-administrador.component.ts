@@ -42,7 +42,7 @@ export class LoginAdministradorComponent {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post('http://localhost:8080/administrador/login', this.administrador, httpOptions);
+    return this.http.post('/api/administrador/login', this.administrador, httpOptions);
   }
 
   recargar() {

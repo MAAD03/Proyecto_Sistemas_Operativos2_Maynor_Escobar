@@ -42,7 +42,7 @@ export class LoginUsuarioComponent {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post('http://localhost:8080/usuario/login', this.usuario, httpOptions);
+    return this.http.post('/api/usuario/login', this.usuario, httpOptions);
   }
 
   recargar() {

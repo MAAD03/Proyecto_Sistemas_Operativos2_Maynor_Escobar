@@ -40,7 +40,7 @@ export class RolAdministradorComponent {
 
   servicioCrear(): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/rol/guardar',
+      '/api/rol/guardar',
       this.rol,
       this.httpOptions
     );
@@ -59,7 +59,7 @@ export class RolAdministradorComponent {
   }
 
   servicioBuscar(): Observable<any> {
-    return this.http.get('http://localhost:8080/rol/buscar');
+    return this.http.get('/api/rol/buscar');
   }
 
   // Modificar rol
@@ -85,7 +85,7 @@ export class RolAdministradorComponent {
 
   servicioEliminar(idRol: number): Observable<any> {
     return this.http.delete(
-      `http://localhost:8080/rol/eliminar/${idRol}`
+      `/api/rol/eliminar/${idRol}`
     );
   }
 }

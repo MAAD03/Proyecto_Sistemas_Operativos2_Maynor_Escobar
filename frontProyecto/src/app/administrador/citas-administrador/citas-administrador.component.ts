@@ -43,7 +43,7 @@ export class CitasAdministradorComponent {
 
   servicioCrear(): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/citas/guardar',
+      '/api/citas/guardar',
       this.cita,
       this.httpOptions
     );
@@ -62,7 +62,7 @@ export class CitasAdministradorComponent {
   }
 
   servicioBuscar(): Observable<any> {
-    return this.http.get('http://localhost:8080/citas/buscar');
+    return this.http.get('/api/citas/buscar');
   }
 
   // Modificar cita
@@ -87,7 +87,7 @@ export class CitasAdministradorComponent {
 
   servicioEliminar(idCitas: number): Observable<any> {
     return this.http.delete(
-      `http://localhost:8080/citas/eliminar/${idCitas}`
+      `/api/citas/eliminar/${idCitas}`
     );
   }
 
@@ -105,7 +105,7 @@ export class CitasAdministradorComponent {
   }
 
   servicioBuscarUsuarios(): Observable<any> {
-    return this.http.get('http://localhost:8080/usuario/buscar');
+    return this.http.get('/api/usuario/buscar');
   }
 
   // Buscar doctores
@@ -121,7 +121,7 @@ export class CitasAdministradorComponent {
   }
 
   servicioBuscarDoctor(): Observable<any> {
-    return this.http.get('http://localhost:8080/doctor/buscar');
+    return this.http.get('/api/doctor/buscar');
   }
 
 

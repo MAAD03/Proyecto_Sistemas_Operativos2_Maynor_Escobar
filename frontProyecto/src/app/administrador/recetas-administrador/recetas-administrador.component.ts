@@ -43,7 +43,7 @@ export class RecetasAdministradorComponent {
 
   servicioCrear(): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/recetas/guardar',
+      '/api/recetas/guardar',
       this.receta,
       this.httpOptions
     );
@@ -62,7 +62,7 @@ export class RecetasAdministradorComponent {
   }
 
   servicioBuscar(): Observable<any> {
-    return this.http.get('http://localhost:8080/recetas/buscar');
+    return this.http.get('/api/recetas/buscar');
   }
 
   // Modificar receta
@@ -87,7 +87,7 @@ eliminar(receta: any) {
 
 servicioEliminar(idRecetas: number): Observable<any> {
   return this.http.delete(
-    `http://localhost:8080/recetas/eliminar/${idRecetas}`
+    `/api/recetas/eliminar/${idRecetas}`
   );
 }
 
@@ -105,7 +105,7 @@ servicioEliminar(idRecetas: number): Observable<any> {
   }
 
   servicioBuscarUsuarios(): Observable<any> {
-    return this.http.get('http://localhost:8080/usuario/buscar');
+    return this.http.get('/api/usuario/buscar');
   }
 
   // Buscar doctores
@@ -121,7 +121,7 @@ servicioEliminar(idRecetas: number): Observable<any> {
   }
 
   servicioBuscarDoctor(): Observable<any> {
-    return this.http.get('http://localhost:8080/doctor/buscar');
+    return this.http.get('/api/doctor/buscar');
   }
 
   

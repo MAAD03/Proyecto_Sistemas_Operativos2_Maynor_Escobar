@@ -42,7 +42,7 @@ doctor: any = {};
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post('http://localhost:8080/doctor/login', this.doctor, httpOptions);
+    return this.http.post('/api/doctor/login', this.doctor, httpOptions);
   }
 
   recargar() {

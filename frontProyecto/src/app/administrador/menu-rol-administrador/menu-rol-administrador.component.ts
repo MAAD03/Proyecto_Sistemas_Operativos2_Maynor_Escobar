@@ -46,7 +46,7 @@ export class MenuRolAdministradorComponent {
 
   servicioCrear(): Observable<any> {
     return this.http.post<any>(
-      'http://localhost:8080/menuRol/guardar',
+      '/api/menuRol/guardar',
       this.menu_rol,
       this.httpOptions
     );
@@ -65,7 +65,7 @@ export class MenuRolAdministradorComponent {
   }
 
   servicioBuscar(): Observable<any> {
-    return this.http.get('http://localhost:8080/menuRol/buscar');
+    return this.http.get('/api/menuRol/buscar');
   }
 
   // Modificar menu_rol
@@ -90,7 +90,7 @@ eliminar(menu_rol: any) {
 
 servicioEliminar(idMenuRol: number): Observable<any> {
   return this.http.delete(
-    `http://localhost:8080/menuRol/eliminar/${idMenuRol}`
+    `/api/menuRol/eliminar/${idMenuRol}`
   );
 }
 
@@ -108,7 +108,7 @@ servicioEliminar(idMenuRol: number): Observable<any> {
   }
 
   servicioBuscarMenu(): Observable<any> {
-    return this.http.get('http://localhost:8080/menu/buscar');
+    return this.http.get('/api/menu/buscar');
   }
 
   // Buscar Roles
@@ -124,7 +124,7 @@ servicioEliminar(idMenuRol: number): Observable<any> {
   }
 
   servicioBuscarRoles(): Observable<any> {
-    return this.http.get('http://localhost:8080/rol/buscar');
+    return this.http.get('/api/rol/buscar');
   }
 
 }
