@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: backend
-          image: gcr.io/TU_PROJECT_ID/backend-clinica:v1
+          image: gcr.io/proyetofinalso2/backend-clinica:v1
           ports:
             - containerPort: 8080
