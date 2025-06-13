@@ -57,7 +57,7 @@ export class AppComponent {
   }
 
   servicioBuscarMenuPorRol(idRol: number): Observable<any> {
-    return this.http.get('/api/MenusPorRol/porRol/${idRol}', this.httpOptions);
+    return this.http.get(`/api/MenusPorRol/porRol/${idRol}`, this.httpOptions);
   }
 
   ngOnInit(): void {
