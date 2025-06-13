@@ -1,19 +1,15 @@
 -- Crear la base de datos
-CREATE DATABASE IF NOT EXISTS BDSO2;
+CREATE DATABASE IF NOT EXISTS bdso2;
 
-USE BDSO2;
+USE bdso2;
 
 -- Crear usuario
-CREATE USER IF NOT EXISTS 'adminSO2'@'%' IDENTIFIED WITH mysql_native_password BY 'adminSO2';
-
+CREATE USER IF NOT EXISTS 'adminSO2'@'%' IDENTIFIED BY 'adminSO2';
 
 -- Dar permisos al usuario
-GRANT ALL PRIVILEGES ON BDSO2.* TO 'adminSO2'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON bdso2.* TO 'adminSO2'@'%' WITH GRANT OPTION;
 GRANT CREATE USER ON *.* TO 'adminSO2'@'%';
 FLUSH PRIVILEGES;
-
-
-
 
 
 -- Crear tabla de roles
