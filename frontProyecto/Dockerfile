@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 RUN npm install && npm run build --prod
 
-# Etapa de servidor Nginx
+# Etapa de producción con Nginx
 FROM nginx:alpine
-COPY --from=build /app/dist/front-proyecto /usr/share/nginx/html  
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist/front-proyecto /usr/share/nginx/html
+COPY default.conf /etc/nginx/conf.d/default.conf

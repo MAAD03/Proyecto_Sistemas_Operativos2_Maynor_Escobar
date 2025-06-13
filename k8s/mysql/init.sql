@@ -4,11 +4,12 @@ CREATE DATABASE IF NOT EXISTS BDSO2;
 USE BDSO2;
 
 -- Crear usuario
-CREATE USER IF NOT EXISTS 'adminSO2'@'localhost' IDENTIFIED BY 'adminSO2';
+CREATE USER IF NOT EXISTS 'adminSO2'@'%' IDENTIFIED WITH mysql_native_password BY 'adminSO2';
+
 
 -- Dar permisos al usuario
-GRANT ALL PRIVILEGES ON BDSO2.* TO 'adminSO2'@'localhost' WITH GRANT OPTION;
-GRANT CREATE USER ON *.* TO 'adminSO2'@'localhost';
+GRANT ALL PRIVILEGES ON BDSO2.* TO 'adminSO2'@'%' WITH GRANT OPTION;
+GRANT CREATE USER ON *.* TO 'adminSO2'@'%';
 FLUSH PRIVILEGES;
 
 
