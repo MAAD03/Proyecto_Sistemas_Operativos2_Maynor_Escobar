@@ -1,9 +1,11 @@
-HELP.md
+# Archivos de Maven a ignorar (excepto el .jar final)
 target/
+!target/*.jar
+!target/**/*.jar
 .mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
+# Resto de configuraciones (IDEs, etc.)
+HELP.md
 ### STS ###
 .apt_generated
 .classpath
@@ -22,7 +24,6 @@ target/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
-/dist/
 /nbdist/
 /.nb-gradle/
 build/
